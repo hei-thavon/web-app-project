@@ -1,117 +1,100 @@
+/* small reset so the topbar truly touches edges */
+body { margin: 0; }
+
 .menu {
   color: white;
   font-family: Arial, sans-serif;
-  padding: 30px 70px; /* Edge Big space of Container top and bottom and position of container0??? */
+  padding: 30px 70px; /* keep your original padding */
 }
 
-/* HAHA Easy */
-
-.container0 {
-  max-width:1500px;/* keeps it from stretching too wide */
-  padding: 10px;/* inner space */
+/* Top bar */
+.topbar {
+  position: fixed;   /* stays at top even when scrolling */
+  top: 0;
+  left: 0;
+  right: 0;          /* stretch to the right edge */
+  height: 64px;
+  width: 100%;       /* full width */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* <-- center the whole group */
+  z-index: 1000;
   background: rgba(255, 255, 255, 0.1); /* light overlay */
-  border-radius: 10px;
-  color: white;/* text color */
-  position: relative; top: 10px; left: -10px;/* down *//* right */
+  border-radius: 0;
 }
-.home {
-  background-color: #ff9800; /* orange */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-  margin-top: 5px;   /* space above image */
+
+/* Centered group */
+.topbar-center {
+  display: flex;
+  gap: 12px;
 }
-.my-button:hover {
-  background-color: #e68a00; /* darker on hover */
-}
-.button1 {
-  background-color: #ff9800; /* orange */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-  margin-top: 5px;   /* space above image */
-  position: relative; left: 870px;/* down *//* right */
-}
-.my-button:hover {
-  background-color: #e68a00; /* darker on hover */
-}
-.button2 {
-  background-color: #ff9800; /* orange */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-  margin-top: 5px;   /* space above image */
-  position: relative; left: 880px;/* down *//* right */
-}
-.my-button:hover {
-  background-color: #e68a00; /* darker on hover */
-}
+
+/* Your original button styles */
+.home,
+.button1,
+.button2,
 .button3 {
   background-color: #ff9800; /* orange */
   color: white;
   border: none;
   padding: 10px 20px;
-  margin-top: 15px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
-  margin-top: 5px;   /* space above image */
-  position: relative; left: 890px;/* down *//* right */
+  margin-top: 5px;
 }
-.my-button:hover {
+.my-button:hover,
+.home:hover,
+.button1:hover,
+.button2:hover,
+.button3:hover {
   background-color: #e68a00; /* darker on hover */
 }
 
+/* ---- IMPORTANT: neutralize old offsets so centering works ---- */
+.topbar-center .home,
+.topbar-center .button1,
+.topbar-center .button2,
+.topbar-center .button3 {
+  position: static;   /* cancels 'position: relative' */
+  left: 0;            /* cancels previous left values */
+}
 
-
+/* ---- Your existing containers (unchanged) ---- */
 .container1 {
-  max-width:600px;/* keeps it from stretching too wide */
-  margin: 0 auto;/* center horizontally */
-  padding: 20px;/* inner space */
-  background: rgba(255, 255, 255, 0.1); /* light overlay */
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  color: white;/* text color */
-  position: relative; top: 15px; left: -375px;/* down *//* right */
+  color: white;
+  position: relative; top: 60px; left: -375px;
 }
 
 .container2 {
-  max-width:300px;/* keeps it from stretching too wide */
-  margin: 0 auto;/* center horizontally */
-  padding: 20px;/* inner space */
-  background: rgba(255, 255, 255, 0.1); /* light overlay */
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  color: white;/* text color */
-  position: relative; top: -145px; left: 380px;/* down *//* right */
+  color: white;
+  position: relative; top: -99px; left: 380px;
 }
 
 .profile-image {
-  width: 300px;       /* adjust size */
+  width: 300px;
   border-radius: 10px;
-  margin-top: 5px;   /* space above image */
+  margin-top: 5px;
 }
 
 .container3 {
-  max-width:300px;/* keeps it from stretching too wide */
-  margin: 0 auto;/* center horizontally */
-  padding: 20px;/* inner space */
-  background: rgba(255, 255, 255, 0.1); /* light overlay */
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  color: white;/* text color */
-  position: relative; top: -140px; left: 380px;/* down *//* right */
+  color: white;
+  position: relative; top: -90px; left: 380px;
 }

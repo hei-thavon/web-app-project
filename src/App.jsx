@@ -5,50 +5,41 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [activePage, setActivePage] = useState("home");
 
-  // When user opens /#test1 etc., set the state from the hash
   useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash) {
-      setActivePage(hash);
-    }
-
-    // Listen for manual hash changes (e.g., back/forward buttons)
-    const onHashChange = () => {
-      const newHash = window.location.hash.replace("#", "");
-      setActivePage(newHash || "home");
-    };
-    window.addEventListener("hashchange", onHashChange);
-
-    return () => window.removeEventListener("hashchange", onHashChange);
+    const applyHash = () =>
+      setActivePage(window.location.hash.replace("#", "") || "home");
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
   }, []);
 
   return (
     <div className="menu">
-      {/* Buttons */}
-      <div className="container0">
-        <a href="#home">
-          <button className="home" onClick={() => setActivePage("home")}>
-            H.T
-          </button>
-        </a>
-        <a href="#test1">
-          <button className="button1" onClick={() => setActivePage("test1")}>
-            TEST1
-          </button>
-        </a>
-        <a href="#test2">
-          <button className="button2" onClick={() => setActivePage("test2")}>
-            TEST2
-          </button>
-        </a>
-        <a href="#test3">
-          <button className="button3" onClick={() => setActivePage("test3")}>
-            TEST3
-          </button>
-        </a>
+      <div className="topbar">
+        <div className="topbar-center">
+          <a href="#home">
+            <button className="home" onClick={() => setActivePage("home")}>
+              H.T
+            </button>
+          </a>
+          <a href="#test1">
+            <button className="button1" onClick={() => setActivePage("test1")}>
+              TEST1
+            </button>
+          </a>
+          <a href="#test2">
+            <button className="button2" onClick={() => setActivePage("test2")}>
+              TEST2
+            </button>
+          </a>
+          <a href="#test3">
+            <button className="button3" onClick={() => setActivePage("test3")}>
+              TEST3
+            </button>
+          </a>
+        </div>
       </div>
 
-      {/* Conditional content */}
       {activePage === "home" && (
         <>
           <div className="container1">
@@ -69,15 +60,9 @@ export default function App() {
         </>
       )}
 
-      {activePage === "test1" && (
-        <h2 style={{ color: "white" }}>This is TEST1 Page</h2>
-      )}
-      {activePage === "test2" && (
-        <h2 style={{ color: "white" }}>This is TEST2 Page</h2>
-      )}
-      {activePage === "test3" && (
-        <h2 style={{ color: "white" }}>This is TEST3 Page</h2>
-      )}
+      {activePage === "test1" && <h2 style={{ color: "white" }}>This is TEST1 Page</h2>}
+      {activePage === "test2" && <h2 style={{ color: "white" }}>This is TEST2 Page</h2>}
+      {activePage === "test3" && <h2 style={{ color: "white" }}>This is TEST3 Page</h2>}
     </div>
   );
 }
