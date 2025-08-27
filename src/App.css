@@ -320,3 +320,403 @@ figure{ margin:0; }
   line-height: 1.85;
 }
 
+
+
+.about-me {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #facc15; /* yellow */
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.about-left {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.about-img {
+  width: 260px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+}
+
+.about-quote {
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.about-socials {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  font-size: 24px;
+}
+
+.about-right {
+  flex: 1 1 300px;
+  text-align: left;
+}
+
+.hobbies-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #facc15;
+}
+
+.hobbies-list {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #f44336;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.resume-btn:hover {
+  background-color: #d32f2f;
+}
+
+
+/* Demo Reel block */
+.demo-reel {
+  padding: 48px 20px 8px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
+.demo-title {
+  margin: 0 0 18px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: .3px;
+  color: #facc15; /* rich yellow */
+}
+
+/* Framed, cinematic player */
+.demo-frame {
+  /* size */
+  max-width: 860px;
+  margin: 0 auto;
+
+  /* the black “frame” around the video */
+  background: #000;
+  border: 8px solid #0e0e0e;           /* thick outer frame */
+  border-radius: 6px;
+  box-shadow: 0 16px 32px rgba(0,0,0,.55);
+  overflow: hidden;
+
+  /* keep perfect 16:9 */
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+/* inner “letterbox” bars (subtle) */
+.demo-frame::before,
+.demo-frame::after {
+  content: "";
+  position: absolute; left: 0; right: 0;
+  height: 10px;                       /* top & bottom dark bars */
+  background: #000;
+  opacity: .95;
+  z-index: 1;
+}
+.demo-frame::before { top: 0; }
+.demo-frame::after  { bottom: 0; }
+
+.demo-frame iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* small screens */
+@media (max-width: 600px) {
+  .demo-title { font-size: 1.4rem; }
+  .demo-frame { border-width: 6px; }
+}
+
+.software {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
+.software-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #facc15;
+  margin-bottom: 24px;
+}
+
+/* 3 fixed columns, centered, with even gaps */
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 160px); /* 3 tiles per row */
+  gap: 28px 40px;
+  justify-content: center; /* center the grid block */
+}
+
+/* square tile card */
+.software-item {
+  width: 160px;
+  height: 160px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;      /* center the logo */
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.software-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 22px rgba(0,0,0,.5);
+}
+
+/* logo sizing stays inside the tile */
+.software-item img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}
+
+/* responsive: 2 cols on tablets, 1 col on phones */
+@media (max-width: 820px) {
+  .software-grid { grid-template-columns: repeat(2, 160px); gap: 24px 28px; }
+}
+@media (max-width: 520px) {
+  .software-grid { grid-template-columns: 160px; gap: 18px; }
+}
+
+
+/* --- Software grid (3 columns) --- */
+.software { padding: 40px 20px; max-width: 1000px; margin: 0 auto; text-align: center; color: #fff; }
+.software-title { font-size: 1.8rem; font-weight: 800; color: #facc15; margin-bottom: 24px; }
+
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 160px);
+  gap: 28px 40px;
+  justify-content: center;
+}
+.software-item {
+  width: 160px; height: 160px; background: #fff; border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.35);
+  display: grid; place-items: center;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.software-item:hover { transform: translateY(-6px); box-shadow: 0 12px 22px rgba(0,0,0,.5); }
+.software-item img { width: 85%; height: 85%; object-fit: contain; }
+
+@media (max-width: 820px) { .software-grid { grid-template-columns: repeat(2, 160px); gap: 24px 28px; } }
+@media (max-width: 520px) { .software-grid { grid-template-columns: 160px; gap: 18px; } }
+
+/* --- Other Pursuits --- */
+.pursuits {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: #fff;
+}
+.pursuits-title {
+  text-align: center;
+  color: #facc15;           /* yellow */
+  font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 34px);
+  margin-bottom: 18px;
+}
+
+/* 2 x 2 grid like the reference */
+.pursuits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+
+/* Card look: subtle border, shadow, dark overlay, big headline */
+.pursuit-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;     /* consistent card height */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+
+  /* border + shadow like screenshot */
+  box-shadow: 0 14px 30px rgba(0,0,0,.55);
+  outline: 1px solid rgba(0,0,0,.7);
+  outline-offset: -1px;
+
+  text-decoration: none;
+  transform: translateZ(0);
+  transition: transform .2s ease, box-shadow .2s ease, outline-color .2s ease;
+}
+
+/* dark overlay for readability */
+.pursuit-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.6), rgba(0,0,0,.3));
+  transition: opacity .2s ease;
+}
+
+.pursuit-text {
+  position: absolute; inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: clamp(22px, 3.2vw, 40px);
+  line-height: 1.05;
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,.65);
+}
+
+/* Hover/focus: slight lift, brighter image, clear focus ring */
+.pursuit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(0,0,0,.65);
+}
+.pursuit-card:hover::after { opacity: .45; }
+
+.pursuit-card:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 2px;
+}
+
+/* Responsive: 1 column on phones */
+@media (max-width: 720px) {
+  .pursuits-grid { grid-template-columns: 1fr; }
+}
+
+/* --- Sticky footer variables --- */
+:root {
+  --footer-h: 58px; /* footer height */
+}
+
+/* Ensure page content never sits under the sticky footer */
+.menu {
+  padding-bottom: calc(var(--footer-h) + 16px); /* room for footer */
+}
+
+/* Sticky footer */
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: var(--footer-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 8px 20px;
+  background: rgba(26, 26, 26, 0.95);
+  color: #fff;
+  border-top: 1px solid #000;
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.45);
+  backdrop-filter: saturate(1.2) blur(4px);
+  z-index: 1000; /* above page content */
+}
+
+/* --- Sticky footer variables --- */
+:root {
+  --footer-h: 58px; /* footer height */
+}
+
+/* Ensure page content never sits under the sticky footer */
+.menu {
+  padding-bottom: calc(var(--footer-h) + 16px); /* room for footer */
+}
+
+/* Sticky footer */
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: var(--footer-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 8px 20px;
+  background: rgba(26, 26, 26, 0.95);
+  color: #fff;
+  border-top: 1px solid #000;
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.45);
+  backdrop-filter: saturate(1.2) blur(4px);
+  z-index: 1000; /* above page content */
+}
+
+.footer-left { font-weight: 600; }
+.footer-role { color: #facc15; font-style: italic; }
+
+.footer-center {
+  display: flex;
+  gap: 14px;
+  font-size: 22px;
+}
+.footer-center a {
+  color: #fff; text-decoration: none;
+  transition: transform .2s ease, color .2s ease;
+}
+.footer-center a:hover { color: #facc15; transform: scale(1.15); }
+
+/* Top button */
+.back-to-top {
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.back-to-top:hover { background: #3b4c61; transform: translateY(-2px); }
+
+/* Mobile tweaks + iOS safe area */
+@media (max-width: 560px) {
+  :root { --footer-h: 64px; }
+  .footer { padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); }
+  .footer-center { font-size: 20px; gap: 12px; }
+  .footer-left { font-size: 14px; }
+}
+
+/* If you also have a fixed topbar, leave a bit of top padding on body/menu if needed */

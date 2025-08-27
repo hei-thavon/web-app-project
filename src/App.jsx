@@ -2,6 +2,14 @@ import "./App.css";
 import profileImg from "./assets/profile.png";
 import { useState, useEffect } from "react";
 
+
+import unrealIcon from "./assets/icons/unreal.png";
+import unityIcon from "./assets/icons/unity.png";
+import mayaIcon from "./assets/icons/maya.png";
+import photoshopIcon from "./assets/icons/photoshop.png";
+import perforceIcon from "./assets/icons/perforce.png";
+import jiraIcon from "./assets/icons/jira.png";
+
 const galleryMap = import.meta.glob("./assets/gallery/*.{png,jpg,jpeg,webp,gif}", {
   eager: true,
   as: "url",
@@ -245,6 +253,297 @@ export default function App() {
 
         </div>
       )}
+
+        {activePage === "test2" && (
+        <div className="container4">
+          <h2>This is TEST2 Page: For Roblox</h2>
+          <p>Welcome to this demo section a clean, focused space meant to preview real-world 
+            content without the noise. Imagine this block as a hero introduction or product 
+            overview. It explains what the experience is, who it benefits, and why it matters. 
+            The tone is warm and confident, the pacing calm, and the structure skimmable.
+             On desktop or mobile, the copy remains readable at a glance. 
+             Paired with a video and gallery, this paragraph sets context, 
+             builds trust, and invites visitors to explore the details that follow. 
+             Key ideas can be highlighted in short sentences. 
+             Start with the problem your audience feels today.</p>
+          <div className="video-demo">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1&playsinline=1"
+              title="4K video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen/>
+            <a
+              href="https://drive.google.com/your-google-drive-link-here"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="drive-button">
+              📂 Open Google Drive
+            </a>
+          </div>
+
+          <div className="container5">
+            <h3>Extra Container</h3>
+
+            <div className="mosaic">
+              {images.map((src, i) => (
+                <figure
+                  key={i}
+                  className={`tile ${sizes[i] || ""}`}
+                  onClick={() => { setLightboxIndex(i); setIsLightboxOpen(true); }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      setLightboxIndex(i);
+                      setIsLightboxOpen(true);
+                    }
+                  }}>
+                  <img src={src} alt={`pic${i + 1}`} loading="lazy" />
+                </figure>
+              ))}
+            </div>
+          </div>
+
+          {isLightboxOpen && (
+            <div className="lightbox" onClick={() => setIsLightboxOpen(false)}>
+              <button
+                className="lightbox-close-x"
+                aria-label="Close"
+                onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}
+              />
+              <img
+                className="lightbox-img"
+                src={images[lightboxIndex]}
+                alt={`full-pic-${lightboxIndex + 1}`}
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          )}
+
+    <div className="project-summary">
+    <div className="summary-col">
+    <h4 className="summary-title">Goal:</h4>
+    <ul className="summary-list">
+      <li>Build an AWS EC2, DigitalOcean, Vercel, Netlify optimized for web platforms.</li>
+      <li>Create and manage Jenkins for core server logic.</li>
+      <li>Design automate Jenkins CD, GitLab CI, GitHub Actions, Terraform, Ansible and Docker-friendly environments.</li>
+      <li>Dev API Development: REST, GraphQL, gRPC</li>
+      <li>Manage Databases:SQL (PostgreSQL, MySQL, MongoDB)</li>
+      <li>Practice: Authentication & Authorization: JWT, OAuth2, OpenID Connect, Session & Cookie auth.</li>
+    </ul>
     </div>
+    <div className="summary-col">
+    <h4 className="summary-title">Project Details</h4>
+    <ul className="summary-list">
+      <li><span className="summary-label">Software:</span> AWS EC2 5</li>
+      <li><span className="summary-label">Language:</span> JavaScript/TypeScript (Node.js), Go..? </li>
+      <li><span className="summary-label">Duration:</span> 16.5 hours to learn, ~3 months to build</li>
+      <li><span className="summary-label">Team Size:</span> with iQURi Team</li>
+     </ul>
+     </div>
+    </div>
+
+{/* --- Learning / Assets Used panel --- */}
+<div className="learning-assets">
+  <div className="la-col">
+    <h4 className="la-title">Learning:</h4>
+    <ol className="la-list numbered">
+      <li>Understanding the basics of Unreal Engine 5.</li>
+      <li>Mobile Game Development Fundamentals.</li>
+      <li>Implementing gameplay mechanics with Blueprints Visual Scripting.</li>
+      <li>Character and Environment Design.</li>
+      <li>UI/UX Design for Mobile Games.</li>
+    </ol>
+  </div>
+
+  <div className="la-col">
+    <h4 className="la-title">Assets Used:</h4>
+    <ul className="la-list bulleted">
+      <li>Avatar character (Art)</li>
+      <li>Farm field with house, and shop (Art)</li>
+      <li>Good Sky (Art)</li>
+    </ul>
+  </div>
+
+  <hr className="la-divider2" />
+</div>
+
+{/* --- Conclusion panel --- */}
+<section className="conclusion">
+  <h4 className="conclusion-title">Conclusion</h4>
+  <div className="conclusion-body">
+    <p>
+      Although this RPG-inspired level is still a work in progress, the
+      development journey so far has been both challenging and deeply rewarding.
+      Tackling multiplayer implementation and symmetrical character design
+      under tight time constraints has pushed me to think creatively and
+      problem-solve in real time skills that are critical in game development.
+    </p>
+
+    <p>
+      This project has expanded my understanding of Unreal Engine Blueprint
+      scripting and character design, areas I had not previously explored in
+      such depth. It has also strengthened my ability to research solutions,
+      maintain a clear creative vision even when facing technical limitations,
+      and adapt quickly qualities essential to any game development pipeline.
+    </p>
+
+    <p>
+      While the level is not yet complete, the progress made reflects both my
+      commitment to quality and my eagerness to learn and grow. I’m excited to
+      continue building on this foundation and to apply the insights I’ve
+      gained to future projects and opportunities in game development.
+    </p>
+  </div>
+</section>
+        </div>
+      )}
+
+
+{activePage === "test3" && (
+  <>
+    <div className="about-me">
+      <h2 className="about-title">About Me</h2>
+
+      <div className="about-content">
+        <div className="about-left">
+          <img src={profileImg} alt="Profile" className="about-img" />
+          <p className="about-quote">"Crafting memorable experiences"</p>
+
+          <div className="about-socials">
+            <a href="https://youtube.com" target="_blank" rel="noreferrer">📺</a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">💼</a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">🐦</a>
+            <a href="https://yourportfolio.com" target="_blank" rel="noreferrer">🌐</a>
+          </div>
+        </div>
+
+        <div className="about-right">
+          <h3 className="hobbies-title">Hobbies</h3>
+          <ul className="hobbies-list">
+            <li>Go to the beach</li>
+            <li>Do road trips with friends</li>
+            <li>Explore nature and go hiking</li>
+            <li>Photography</li>
+            <li>Play story-driven video games</li>
+            <li>Watch Sci-fi movies</li>
+            <li>Read about science</li>
+          </ul>
+
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn">
+            RESUME
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* --- Demo Reel (ONLY on TEST3) --- */}
+    <section className="demo-reel">
+      <h3 className="demo-title">Demo Reel</h3>
+      <div className="demo-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1&playsinline=1"
+          title="Demo Reel"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
+      </div>
+    </section>
+
+      <section className="software">
+  <h3 className="software-title">Software Proficiency</h3>
+  <div className="software-grid">
+    {[
+      { src: unrealIcon, alt: "Unreal Engine" },
+      { src: unityIcon,  alt: "Unity" },
+      { src: mayaIcon,   alt: "Maya" },
+      { src: photoshopIcon, alt: "Photoshop" },
+      { src: perforceIcon,  alt: "Perforce" },
+      { src: jiraIcon,      alt: "Jira" },
+    ].map((it, i) => (
+      <div className="software-item" key={i}>
+        <img src={it.src} alt={it.alt} loading="lazy" />
+      </div>
+    ))}
+  </div>
+</section>
+
+
+    <section className="pursuits">
+  <h3 className="pursuits-title">Other Pursuits</h3>
+
+  <div className="pursuits-grid">
+    {[
+      {
+        title: "Learn new languages!",
+        href: "https://www.duolingo.com/",
+        bg: unrealIcon,
+      },
+      {
+        title: "Make YouTube content!",
+        href: "https://www.youtube.com/",
+        bg: unrealIcon,
+      },
+      {
+        title: "Trophies/achievement hunting!",
+        href: "https://www.playstation.com/en-us/playstation-plus/collections/trophy/",
+        bg: unrealIcon,
+      },
+      {
+        title: "Travel the world!",
+        href: "https://www.lonelyplanet.com/",
+        bg: unrealIcon,
+      },
+    ].map((card, i) => (
+      <a
+        key={i}
+        className="pursuit-card"
+        href={card.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ backgroundImage: `url(${card.bg})` }}
+      >
+        <span className="pursuit-text">{card.title}</span>
+      </a>
+    ))}
+  </div>
+</section>
+  </>
+
+
+    
+        
+)}
+{/* --- Footer (sticky) --- */}
+<footer className="footer">
+  <div className="footer-left">
+    <span className="footer-name">Hei Thavon,</span>
+    <span className="footer-role"> BE Dev</span>
+  </div>
+
+  <div className="footer-center">
+    <a href="https://youtube.com" target="_blank" rel="noreferrer">📺</a>
+    <a href="https://linkedin.com" target="_blank" rel="noreferrer">💼</a>
+    <a href="https://twitter.com" target="_blank" rel="noreferrer">🐦</a>
+    <a href="https://artstation.com" target="_blank" rel="noreferrer">🎨</a>
+    <a href="https://patreon.com" target="_blank" rel="noreferrer">🧡</a>
+  </div>
+
+  <div className="footer-right">
+    <button
+      className="back-to-top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    >
+      ↑ Top
+    </button>
+  </div>
+</footer>
+
+
+
+    </div> 
+
   );
 }
