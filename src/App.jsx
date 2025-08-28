@@ -1,5 +1,6 @@
 import "./App.css";
 import profileImg from "./assets/profile.png";
+import profile1Img from "./assets/profile1.png";
 import { useState, useEffect } from "react";
 
 
@@ -62,62 +63,66 @@ export default function App() {
               H.T
             </button>
           </a>
-          <a href="#test1">
+          <a href="#SoloProject">
             <button
-              className={`nav-button ${activePage === "test1" ? "active" : ""}`}
-              onClick={() => setActivePage("test1")}>
-              TEST1
+              className={`nav-button ${activePage === "SoloProject" ? "active" : ""}`}
+              onClick={() => setActivePage("SoloProject")}>
+              Solo Project
             </button>
           </a>
-          <a href="#test2">
+          <a href="#RobloxProject">
             <button
-              className={`nav-button ${activePage === "test2" ? "active" : ""}`}
-              onClick={() => setActivePage("test2")}       >
-              TEST2
+              className={`nav-button ${activePage === "RobloxProject" ? "active" : ""}`}
+              onClick={() => setActivePage("RobloxProject")}       >
+              Roblox Project
             </button>
           </a>
-          <a href="#test3">
+          <a href="#About">
             <button
-              className={`nav-button ${activePage === "test3" ? "active" : ""}`}
-              onClick={() => setActivePage("test3")}>
-              TEST3
+              className={`nav-button ${activePage === "About" ? "active" : ""}`}
+              onClick={() => setActivePage("About")}>
+              About
             </button>
           </a>
         </div>
       </div>
 
+
       {activePage === "home" && (
-        <>
-          <div className="container1">
-            <p>This is my container content 1.</p>
-            <p>This is my container content 2.</p>
-            <p>This is my container content 3.</p>
-          </div>
+  <div className="container1">
+    <p className="tag">GAME DESIGN PORTFOLIO</p>
+    <h1 className="name">HEI THAVON</h1>
+    <h2 className="role">Animator, Game Design, and Backend Developer</h2>
 
-          <div className="container2">
-            <img src={profileImg} alt="Profile" className="profile-image" />
-          </div>
+    <p className="lead">
+      My name is Hei. I am in Laos, a highly dedicated and self-motivated game player who has had a passion for Game Maker. 
+      I born in the cultural countryside, raised in prosperous suburbs, 
+      and I have been addicted to playing games since I was a young boy. 
+      Games have motivated me to not give up on my life.
+    </p>
 
-          <div className="container3">
-            <p>This is my container content 1.</p>
-            <p>This is my container content 2.</p>
-            <p>This is my container content 3.</p>
-          </div>
-        </>
-      )}
+    <p>
+     I worked at Vientiane Capital in charge of IT core and digital banking. There are no game and animation studios in my country, 
+     anyway my career goal is to be a game developer in a game team somewhere that makes Asian cultural games, 
+     challenging myself creatively, and managerially to build strong teams and game projects.
+     I have used to build 2D games and 2D animations since I was at university using Adobe Flash and Android Studio. 
+     
+    </p>
 
-      {activePage === "test1" && (
+    <p>
+      This portfolio is a list of games I have done and am in progress of making 
+      since I started my solo online learning project in January 2025.
+    </p>
+  </div>
+)}
+
+
+      {activePage === "SoloProject" && (
         <div className="container4">
           <h2>This is TEST1 Page</h2>
-          <p>Welcome to this demo section a clean, focused space meant to preview real-world 
-            content without the noise. Imagine this block as a hero introduction or product 
-            overview. It explains what the experience is, who it benefits, and why it matters. 
-            The tone is warm and confident, the pacing calm, and the structure skimmable.
-             On desktop or mobile, the copy remains readable at a glance. 
-             Paired with a video and gallery, this paragraph sets context, 
-             builds trust, and invites visitors to explore the details that follow. 
-             Key ideas can be highlighted in short sentences. 
-             Start with the problem your audience feels today.</p>
+          <p>Unreal Engine 5 Mobile Game Development introduction to the world of mobile game development using the powerful Unreal Engine 5. 
+            This project is designed for my aspiring game developers who passionate about creating mobile games, regardless of prior experience. 
+            I am eager to bring my game ideas to life and dive into the mobile gaming industry.</p>
           <div className="video-demo">
             <iframe
               src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1&playsinline=1"
@@ -135,7 +140,7 @@ export default function App() {
           </div>
 
           <div className="container5">
-            <h3>Extra Container</h3>
+            <h3>Game making Step by stem images</h3>
 
             <div className="mosaic">
               {images.map((src, i) => (
@@ -177,21 +182,19 @@ export default function App() {
     <div className="summary-col">
     <h4 className="summary-title">Goal:</h4>
     <ul className="summary-list">
-      <li>Build an AWS EC2, DigitalOcean, Vercel, Netlify optimized for web platforms.</li>
-      <li>Create and manage Jenkins for core server logic.</li>
-      <li>Design automate Jenkins CD, GitLab CI, GitHub Actions, Terraform, Ansible and Docker-friendly environments.</li>
-      <li>Dev API Development: REST, GraphQL, gRPC</li>
-      <li>Manage Databases:SQL (PostgreSQL, MySQL, MongoDB)</li>
-      <li>Practice: Authentication & Authorization: JWT, OAuth2, OpenID Connect, Session & Cookie auth.</li>
+      <li>Build an RPG game with optimization for mobile platforms. 
+        Creating and managing blueprints for game logic, 
+        Designing animated characters and environments for mobile games, 
+        and Prepare your game for publication on app stores.</li>
     </ul>
     </div>
     <div className="summary-col">
     <h4 className="summary-title">Project Details</h4>
     <ul className="summary-list">
-      <li><span className="summary-label">Software:</span> AWS EC2 5</li>
-      <li><span className="summary-label">Language:</span> JavaScript/TypeScript (Node.js), Go..? </li>
+      <li><span className="summary-label">Engine:</span> ENGINE: Unreal Engine 5 </li>
+      <li><span className="summary-label">Language:</span> Blueprints </li>
       <li><span className="summary-label">Duration:</span> 16.5 hours to learn, ~3 months to build</li>
-      <li><span className="summary-label">Team Size:</span> with iQURi Team</li>
+      <li><span className="summary-label">Team Size:</span> Solo project</li>
      </ul>
      </div>
     </div>
@@ -254,9 +257,9 @@ export default function App() {
         </div>
       )}
 
-        {activePage === "test2" && (
+        {activePage === "RobloxProject" && (
         <div className="container4">
-          <h2>This is TEST2 Page: For Roblox</h2>
+          <h2>This is RobloxProject Page: For Roblox</h2>
           <p>Welcome to this demo section a clean, focused space meant to preview real-world 
             content without the noise. Imagine this block as a hero introduction or product 
             overview. It explains what the experience is, who it benefits, and why it matters. 
@@ -401,14 +404,14 @@ export default function App() {
       )}
 
 
-{activePage === "test3" && (
+{activePage === "About" && (
   <>
     <div className="about-me">
       <h2 className="about-title">About Me</h2>
 
       <div className="about-content">
         <div className="about-left">
-          <img src={profileImg} alt="Profile" className="about-img" />
+          <img src={profile1Img} alt="Profile" className="about-img" />
           <p className="about-quote">"Crafting memorable experiences"</p>
 
           <div className="about-socials">
@@ -422,13 +425,12 @@ export default function App() {
         <div className="about-right">
           <h3 className="hobbies-title">Hobbies</h3>
           <ul className="hobbies-list">
-            <li>Go to the beach</li>
-            <li>Do road trips with friends</li>
-            <li>Explore nature and go hiking</li>
-            <li>Photography</li>
-            <li>Play story-driven video games</li>
-            <li>Watch Sci-fi movies</li>
-            <li>Read about science</li>
+            <li>Talkless, quiet person.</li>
+            <li>Addict documentaries, movies, animations, songs, music, tech, sports, and e-sports.</li>
+            <li>Watch Gameplay walkthrough: RPG, RTS, Cards, Turn-based, Fighter, MMO, MOBA, and Racing.</li>
+            <li>Play recent video games: eFootball, RoV, and Roblox.</li>
+            <li>Goal obtain in 2 year: complete Toefl level testing, learn and make Unreal Engine 5-create RPG mobile game, multiplayer shooter game with C++ and build Roblox game with Lua.</li>
+            <li>Do road trips and explore nature.</li>
           </ul>
 
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn">

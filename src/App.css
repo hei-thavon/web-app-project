@@ -54,14 +54,42 @@ body { margin: 0; }
 
 
 .container1 {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   color: white;
-  position: relative; top: 60px; left: -375px;
+  position: relative; top: 50px; left: -325px;
 }
+
+.container1 .tag {
+  font-weight: 800;
+  letter-spacing: .1em;
+  font-size: clamp(12px, 2vw, 26px); /*GAME DESIGN PORTFOLIO*/
+  margin: 0 0 7px;
+}
+
+.container1 .name {
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+  font-size: clamp(1px, 12vw, 91px);
+  margin: 0 0 5px;
+}
+
+.container1 .role {
+  font-size: clamp(10px, 2vw, 20px);
+}
+
+.container1 .lead,
+.container1 p {
+  line-height: 1.5;
+  margin-block-end: clamp(16px, 2vw, 28px);
+  text-align: justify;
+}
+
+
 
 .container2 {
   max-width: 300px;
