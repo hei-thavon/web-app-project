@@ -1,5 +1,4 @@
 import "./App.css";
-import profileImg from "./assets/profile.png";
 import profile1Img from "./assets/profile1.png";
 import { useState, useEffect } from "react";
 
@@ -48,7 +47,7 @@ export default function App() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
-  }, [isLightboxOpen]);
+  }, [isLightboxOpen, images.length]);
   const sizes = ["w2 h2", "h2", "w2", "", "w2", "", "", ""];
   const images = galleryImages.slice(0, 8);
 
