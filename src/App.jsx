@@ -141,7 +141,6 @@ export default function App() {
 
           <div className="container5">
             <h3>Game making Step by stem images</h3>
-
             <div className="mosaic">
               {images.map((src, i) => (
                 <figure

@@ -178,22 +178,32 @@ body { margin: 0; }
   color: #fff;
 }
 .container5 { text-align: center; }
+
 .mosaic{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   grid-auto-rows:160px;
   gap:12px;
   grid-auto-flow:dense; /* fills holes */
+
 }
 
 .tile{
   cursor:pointer; /* system hand cursor */
 }
+
 .tile img{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
+}
+
+ .tile:active {
+    transform: scale(0.95);
+  }
+.tile:hover img {
+  transform: scale(1.05);
 }
 
 .w2{ grid-column: span 1; }  /* wide (FIXED) */
