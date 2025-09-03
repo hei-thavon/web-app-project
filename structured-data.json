@@ -1,0 +1,90 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hei Thavon",
+  "jobTitle": "Game Designer, Animator, and Backend Developer",
+  "description": "Game Design Portfolio showcasing animation, game development, and backend development projects",
+  "url": "https://your-domain.com",
+  "image": "https://your-domain.com/src/assets/profile1.png",
+  "sameAs": [
+    "https://youtube.com",
+    "https://linkedin.com",
+    "https://twitter.com",
+    "https://artstation.com",
+    "https://patreon.com"
+  ],
+  "knowsAbout": [
+    "Game Design",
+    "Animation",
+    "Backend Development",
+    "Unreal Engine",
+    "Unity",
+    "Maya",
+    "Photoshop",
+    "JavaScript",
+    "TypeScript",
+    "Node.js"
+  ],
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "University"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Vientiane Capital",
+    "jobTitle": "IT Core and Digital Banking"
+  },
+  "hasOccupation": [
+    {
+      "@type": "Occupation",
+      "name": "Game Designer",
+      "description": "Creating engaging game experiences and mechanics"
+    },
+    {
+      "@type": "Occupation", 
+      "name": "Animator",
+      "description": "Bringing characters and environments to life through animation"
+    },
+    {
+      "@type": "Occupation",
+      "name": "Backend Developer", 
+      "description": "Building robust server-side applications and APIs"
+    }
+  ],
+  "portfolio": [
+    {
+      "@type": "CreativeWork",
+      "name": "Solo Project",
+      "description": "Unreal Engine 5 Mobile Game Development project",
+      "url": "https://your-domain.com/#SoloProject",
+      "creator": {
+        "@type": "Person",
+        "name": "Hei Thavon"
+      },
+      "dateCreated": "2025-01-01",
+      "genre": "Game Development",
+      "softwareApplication": {
+        "@type": "SoftwareApplication",
+        "name": "Unreal Engine 5",
+        "applicationCategory": "GameDevelopmentApplication"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Roblox Project", 
+      "description": "AWS EC2, DigitalOcean, Vercel, Netlify optimized web platform project",
+      "url": "https://your-domain.com/#RobloxProject",
+      "creator": {
+        "@type": "Person",
+        "name": "Hei Thavon"
+      },
+      "dateCreated": "2025-01-01",
+      "genre": "Web Development",
+      "softwareApplication": {
+        "@type": "SoftwareApplication",
+        "name": "AWS EC2",
+        "applicationCategory": "WebApplication"
+      }
+    }
+  ]
+}
