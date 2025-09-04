@@ -1,5 +1,4 @@
 import "./App.css";
-import profileImg from "./assets/profile.png";
 import profile1Img from "./assets/profile1.png";
 import { useState, useEffect } from "react";
 
@@ -20,35 +19,90 @@ const galleryImages = Object.entries(galleryMap)
   .map(([, url]) => url);
 
 export default function App() {
-  const [activePage, setActivePage] = useState("home");
+  const [activePage, setActivePage] = useState(() =>
+    (typeof window !== "undefined" && window.location.hash.replace("#", "")) || "home"
+  );
 
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [skipRestoreOnClose, setSkipRestoreOnClose] = useState(false);
 
   useEffect(() => {
-    const applyHash = () =>
-      setActivePage(window.location.hash.replace("#", "") || "home");
+    const applyHash = () => {
+      const next = window.location.hash.replace("#", "") || "home";
+      setActivePage(next);
+    };
     applyHash();
     window.addEventListener("hashchange", applyHash);
     return () => window.removeEventListener("hashchange", applyHash);
   }, []);
 
+  // Scroll reveal effect
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll('.reveal-on-scroll'));
+    if (elements.length === 0) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [activePage]);
+
   useEffect(() => {
     if (!isLightboxOpen) return;
     const onKey = (e) => {
       if (e.key === "Escape") setIsLightboxOpen(false);
-      if (e.key === "ArrowRight")
-        setLightboxIndex((i) => (i + 1) % images.length);
-      if (e.key === "ArrowLeft")
-        setLightboxIndex((i) => (i - 1 + images.length) % images.length);
+      if (e.key === "ArrowRight") setLightboxIndex((i) => (i + 1) % images.length);
+      if (e.key === "ArrowLeft") setLightboxIndex((i) => (i - 1 + images.length) % images.length);
     };
-    document.body.style.overflow = "hidden";
+
+    // Lock scroll without shifting layout; keep visual position
+    const { body, documentElement } = document;
+    const scrollY = window.scrollY || window.pageYOffset;
+    const scrollbarW = window.innerWidth - documentElement.clientWidth;
+    body.dataset.lockScrollY = String(scrollY);
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    if (scrollbarW > 0) body.style.paddingRight = `${scrollbarW}px`;
+
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
+      const y = parseInt(body.dataset.lockScrollY || "0", 10);
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.width = "";
+      body.style.paddingRight = "";
+      delete body.dataset.lockScrollY;
+      if (!skipRestoreOnClose) window.scrollTo(0, y);
     };
-  }, [isLightboxOpen]);
+  }, [isLightboxOpen, skipRestoreOnClose]);
+
+  const handleBackToTop = () => {
+    if (isLightboxOpen) {
+      setSkipRestoreOnClose(true);
+      setIsLightboxOpen(false);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(() => setSkipRestoreOnClose(false), 250);
+      }, 30);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
   const sizes = ["w2 h2", "h2", "w2", "", "w2", "", "", ""];
   const images = galleryImages.slice(0, 8);
 
@@ -73,7 +127,7 @@ export default function App() {
           <a href="#RobloxProject">
             <button
               className={`nav-button ${activePage === "RobloxProject" ? "active" : ""}`}
-              onClick={() => setActivePage("RobloxProject")}       >
+              onClick={() => setActivePage("RobloxProject")}>
               Roblox Project
             </button>
           </a>
@@ -89,19 +143,19 @@ export default function App() {
 
 
       {activePage === "home" && (
-  <div className="container1">
+  <div className="container1 page-switch">
     <p className="tag">GAME DESIGN PORTFOLIO</p>
-    <h1 className="name">HEI THAVON</h1>
-    <h2 className="role">Animator, Game Design, and Backend Developer</h2>
+    <h1 className="name reveal-on-scroll">HEI THAVON</h1>
+    <h2 className="role reveal-on-scroll">Animator, Game Design, and Backend Developer</h2>
 
-    <p className="lead">
+    <p className="lead reveal-on-scroll">
       My name is Hei. I am in Laos, a highly dedicated and self-motivated game player who has had a passion for Game Maker. 
       I born in the cultural countryside, raised in prosperous suburbs, 
       and I have been addicted to playing games since I was a young boy. 
       Games have motivated me to not give up on my life.
     </p>
 
-    <p>
+    <p className="reveal-on-scroll">
      I worked at Vientiane Capital in charge of IT core and digital banking. There are no game and animation studios in my country, 
      anyway my career goal is to be a game developer in a game team somewhere that makes Asian cultural games, 
      challenging myself creatively, and managerially to build strong teams and game projects.
@@ -109,7 +163,7 @@ export default function App() {
      
     </p>
 
-    <p>
+    <p className="reveal-on-scroll">
       This portfolio is a list of games I have done and am in progress of making 
       since I started my solo online learning project in January 2025.
     </p>
@@ -118,12 +172,12 @@ export default function App() {
 
 
       {activePage === "SoloProject" && (
-        <div className="container4">
-          <h2>This is TEST1 Page</h2>
-          <p>Unreal Engine 5 Mobile Game Development introduction to the world of mobile game development using the powerful Unreal Engine 5. 
+        <div className="container4 page-switch">
+          <h2 className="reveal-on-scroll">This is TEST1 Page</h2>
+          <p className="reveal-on-scroll">Unreal Engine 5 Mobile Game Development introduction to the world of mobile game development using the powerful Unreal Engine 5. 
             This project is designed for my aspiring game developers who passionate about creating mobile games, regardless of prior experience. 
             I am eager to bring my game ideas to life and dive into the mobile gaming industry.</p>
-          <div className="video-demo">
+          <div className="video-demo reveal-on-scroll">
             <iframe
               src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1&playsinline=1"
               title="4K video"
@@ -139,14 +193,13 @@ export default function App() {
             </a>
           </div>
 
-          <div className="container5">
+          <div className="container5 reveal-on-scroll">
             <h3>Game making Step by stem images</h3>
-
             <div className="mosaic">
               {images.map((src, i) => (
                 <figure
                   key={i}
-                  className={`tile ${sizes[i] || ""}`}
+                  className={`tile reveal-on-scroll ${sizes[i] || ""}`}
                   onClick={() => { setLightboxIndex(i); setIsLightboxOpen(true); }}
                   role="button"
                   tabIndex={0}
@@ -178,7 +231,7 @@ export default function App() {
             </div>
           )}
 
-    <div className="project-summary">
+    <div className="project-summary reveal-on-scroll">
     <div className="summary-col">
     <h4 className="summary-title">Goal:</h4>
     <ul className="summary-list">
@@ -200,7 +253,7 @@ export default function App() {
     </div>
 
 {/* --- Learning / Assets Used panel --- */}
-<div className="learning-assets">
+<div className="learning-assets reveal-on-scroll">
   <div className="la-col">
     <h4 className="la-title">Learning:</h4>
     <ol className="la-list numbered">
@@ -225,7 +278,7 @@ export default function App() {
 </div>
 
 {/* --- Conclusion panel --- */}
-<section className="conclusion">
+<section className="conclusion reveal-on-scroll">
   <h4 className="conclusion-title">Conclusion</h4>
   <div className="conclusion-body">
     <p>
@@ -258,9 +311,9 @@ export default function App() {
       )}
 
         {activePage === "RobloxProject" && (
-        <div className="container4">
-          <h2>This is RobloxProject Page: For Roblox</h2>
-          <p>Welcome to this demo section a clean, focused space meant to preview real-world 
+        <div className="container4 page-switch">
+          <h2 className="reveal-on-scroll">This is RobloxProject Page: For Roblox</h2>
+          <p className="reveal-on-scroll">Welcome to this demo section a clean, focused space meant to preview real-world 
             content without the noise. Imagine this block as a hero introduction or product 
             overview. It explains what the experience is, who it benefits, and why it matters. 
             The tone is warm and confident, the pacing calm, and the structure skimmable.
@@ -269,7 +322,7 @@ export default function App() {
              builds trust, and invites visitors to explore the details that follow. 
              Key ideas can be highlighted in short sentences. 
              Start with the problem your audience feels today.</p>
-          <div className="video-demo">
+          <div className="video-demo reveal-on-scroll">
             <iframe
               src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1&playsinline=1"
               title="4K video"
@@ -285,14 +338,13 @@ export default function App() {
             </a>
           </div>
 
-          <div className="container5">
+          <div className="container5 reveal-on-scroll">
             <h3>Extra Container</h3>
-
             <div className="mosaic">
               {images.map((src, i) => (
                 <figure
                   key={i}
-                  className={`tile ${sizes[i] || ""}`}
+                  className={`tile reveal-on-scroll ${sizes[i] || ""}`}
                   onClick={() => { setLightboxIndex(i); setIsLightboxOpen(true); }}
                   role="button"
                   tabIndex={0}
@@ -324,7 +376,7 @@ export default function App() {
             </div>
           )}
 
-    <div className="project-summary">
+    <div className="project-summary reveal-on-scroll">
     <div className="summary-col">
     <h4 className="summary-title">Goal:</h4>
     <ul className="summary-list">
@@ -348,7 +400,7 @@ export default function App() {
     </div>
 
 {/* --- Learning / Assets Used panel --- */}
-<div className="learning-assets">
+<div className="learning-assets reveal-on-scroll">
   <div className="la-col">
     <h4 className="la-title">Learning:</h4>
     <ol className="la-list numbered">
@@ -373,7 +425,7 @@ export default function App() {
 </div>
 
 {/* --- Conclusion panel --- */}
-<section className="conclusion">
+<section className="conclusion reveal-on-scroll">
   <h4 className="conclusion-title">Conclusion</h4>
   <div className="conclusion-body">
     <p>
@@ -406,15 +458,15 @@ export default function App() {
 
 {activePage === "About" && (
   <>
-    <div className="about-me">
+    <div className="about-me page-switch reveal-on-scroll">
       <h2 className="about-title">About Me</h2>
 
       <div className="about-content">
         <div className="about-left">
-          <img src={profile1Img} alt="Profile" className="about-img" />
-          <p className="about-quote">"Crafting memorable experiences"</p>
+          <img src={profile1Img} alt="Profile" className="about-img reveal-on-scroll" />
+          <p className="about-quote reveal-on-scroll">"Crafting memorable experiences"</p>
 
-          <div className="about-socials">
+          <div className="about-socials reveal-on-scroll">
             <a href="https://youtube.com" target="_blank" rel="noreferrer">📺</a>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer">💼</a>
             <a href="https://twitter.com" target="_blank" rel="noreferrer">🐦</a>
@@ -423,8 +475,8 @@ export default function App() {
         </div>
 
         <div className="about-right">
-          <h3 className="hobbies-title">Hobbies</h3>
-          <ul className="hobbies-list">
+          <h3 className="hobbies-title reveal-on-scroll">Hobbies</h3>
+          <ul className="hobbies-list reveal-on-scroll">
             <li>Talkless, quiet person.</li>
             <li>Addict documentaries, movies, animations, songs, music, tech, sports, and e-sports.</li>
             <li>Watch Gameplay walkthrough: RPG, RTS, Cards, Turn-based, Fighter, MMO, MOBA, and Racing.</li>
@@ -433,7 +485,7 @@ export default function App() {
             <li>Do road trips and explore nature.</li>
           </ul>
 
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn reveal-on-scroll">
             RESUME
           </a>
         </div>
@@ -441,7 +493,7 @@ export default function App() {
     </div>
 
     {/* --- Demo Reel (ONLY on TEST3) --- */}
-    <section className="demo-reel">
+    <section className="demo-reel reveal-on-scroll">
       <h3 className="demo-title">Demo Reel</h3>
       <div className="demo-frame">
         <iframe
@@ -454,7 +506,7 @@ export default function App() {
       </div>
     </section>
 
-      <section className="software">
+      <section className="software reveal-on-scroll">
   <h3 className="software-title">Software Proficiency</h3>
   <div className="software-grid">
     {[
@@ -465,7 +517,7 @@ export default function App() {
       { src: perforceIcon,  alt: "Perforce" },
       { src: jiraIcon,      alt: "Jira" },
     ].map((it, i) => (
-      <div className="software-item" key={i}>
+      <div className="software-item reveal-on-scroll" key={i}>
         <img src={it.src} alt={it.alt} loading="lazy" />
       </div>
     ))}
@@ -473,7 +525,7 @@ export default function App() {
 </section>
 
 
-    <section className="pursuits">
+    <section className="pursuits reveal-on-scroll">
   <h3 className="pursuits-title">Other Pursuits</h3>
 
   <div className="pursuits-grid">
@@ -501,7 +553,7 @@ export default function App() {
     ].map((card, i) => (
       <a
         key={i}
-        className="pursuit-card"
+        className="pursuit-card reveal-on-scroll"
         href={card.href}
         target="_blank"
         rel="noopener noreferrer"
@@ -536,7 +588,7 @@ export default function App() {
   <div className="footer-right">
     <button
       className="back-to-top"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={handleBackToTop}
     >
       ↑ Top
     </button>
