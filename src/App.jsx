@@ -2,13 +2,29 @@ import "./App.css";
 import profile1Img from "./assets/profile1.png";
 import { useState, useEffect } from "react";
 
-
+import nodejsIcon from "./assets/icons/nodejs.png";
+import reactjsIcon from "./assets/icons/reactjs.png";
+import viteIcon from "./assets/icons/vite.png";
+import mysqlIcon from "./assets/icons/mysql.png";
+import dbdiagramIcon from "./assets/icons/dbdiagram.png";
 import unrealIcon from "./assets/icons/unreal.png";
-import unityIcon from "./assets/icons/unity.png";
-import mayaIcon from "./assets/icons/maya.png";
-import photoshopIcon from "./assets/icons/photoshop.png";
-import perforceIcon from "./assets/icons/perforce.png";
+import dockerIcon from "./assets/icons/docker.png";
+import githubIcon from "./assets/icons/github.png";
+import gitlabIcon from "./assets/icons/gitlab.png";
+import photopeaIcon from "./assets/icons/photopea.png";
 import jiraIcon from "./assets/icons/jira.png";
+import jenkinsIcon from "./assets/icons/jenkins.png";
+import postmanIcon from "./assets/icons/postman.png";
+import tableplusIcon from "./assets/icons/tableplus.png";
+
+import shooterIcon from "./assets/icons/shooter.png";
+import topwownRPGIcon from "./assets/icons/topwownRPG.png";
+import UE5CIcon from "./assets/icons/UE5C.png";
+import ARPGIcon from "./assets/icons/ARPG.png";
+import MobileGameIcon from "./assets/icons/MobileGame.png";
+import RPGMobileGameIcon from "./assets/icons/RPGMobileGame.png";
+import ZbrushIcon from "./assets/icons/Zbrush.png";
+import BlenderIcon from "./assets/icons/Blender.png";
 
 const galleryMap = import.meta.glob("./assets/gallery/*.{png,jpg,jpeg,webp,gif}", {
   eager: true,
@@ -481,7 +497,9 @@ export default function App() {
             <li>Addict documentaries, movies, animations, songs, music, tech, sports, and e-sports.</li>
             <li>Watch Gameplay walkthrough: RPG, RTS, Cards, Turn-based, Fighter, MMO, MOBA, and Racing.</li>
             <li>Play recent video games: eFootball, RoV, and Roblox.</li>
-            <li>Goal obtain in 2 year: complete Toefl level testing, learn and make Unreal Engine 5-create RPG mobile game, multiplayer shooter game with C++ and build Roblox game with Lua.</li>
+            <li>Goal obtain in 3 year: Complete Toefl level testing, 
+              Perceive comprehensive Unreal Engine 5-create RPG mobile, 
+              multiplayer shooter PC with C++, and build Roblox game with Lua.</li>
             <li>Do road trips and explore nature.</li>
           </ul>
 
@@ -492,30 +510,26 @@ export default function App() {
       </div>
     </div>
 
-    {/* --- Demo Reel (ONLY on TEST3) --- */}
-    <section className="demo-reel reveal-on-scroll">
-      <h3 className="demo-title">Demo Reel</h3>
-      <div className="demo-frame">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1&playsinline=1"
-          title="Demo Reel"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        />
-      </div>
-    </section>
 
       <section className="software reveal-on-scroll">
   <h3 className="software-title">Software Proficiency</h3>
   <div className="software-grid">
     {[
-      { src: unrealIcon, alt: "Unreal Engine" },
-      { src: unityIcon,  alt: "Unity" },
-      { src: mayaIcon,   alt: "Maya" },
-      { src: photoshopIcon, alt: "Photoshop" },
-      { src: perforceIcon,  alt: "Perforce" },
+      { src: dbdiagramIcon, alt: "Dbdiagram" },
+      { src: mysqlIcon,      alt: "Mysql" },
+      { src: tableplusIcon,      alt: "Tableplus" },
+      { src: photopeaIcon, alt: "Photopea" },
+      { src: nodejsIcon,      alt: "Nodejs" },
+      { src: reactjsIcon,      alt: "Reactjs" },
+      { src: viteIcon,      alt: "Vite" },
       { src: jiraIcon,      alt: "Jira" },
+      { src: unrealIcon, alt: "Unreal Engine" },
+      { src: githubIcon,   alt: "Github" },
+      { src: gitlabIcon,  alt: "Gitlab" },
+      { src: postmanIcon,      alt: "Postman" },
+      { src: jenkinsIcon,      alt: "Jenkins" },
+      { src: dockerIcon, alt: "Docker" },
+      
     ].map((it, i) => (
       <div className="software-item reveal-on-scroll" key={i}>
         <img src={it.src} alt={it.alt} loading="lazy" />
@@ -530,26 +544,53 @@ export default function App() {
 
   <div className="pursuits-grid">
     {[
-      {
-        title: "Learn new languages!",
-        href: "https://www.duolingo.com/",
-        bg: unrealIcon,
+            {
+        title: "Learn Crimson Ronin",
+        href: "https://www.p2design-academy.com/p/crimson-ronin",
+        bg: ZbrushIcon,
       },
+
       {
-        title: "Make YouTube content!",
-        href: "https://www.youtube.com/",
-        bg: unrealIcon,
+        title: "Learn Alive! Animation course in Blender",
+        href: "https://www.p2design-academy.com/p/alive-animation-course-in-blender",
+        bg: BlenderIcon,
       },
+            {
+        title: "Learn UUnreal Engine 5 Mobile Game Development For Beginners",
+        href: "https://www.udemy.com/course/creating-android-games-in-unreal-engine-5-using-blueprint/?couponCode=KEEPLEARNING",
+        bg: MobileGameIcon,
+      },
+
       {
-        title: "Trophies/achievement hunting!",
-        href: "https://www.playstation.com/en-us/playstation-plus/collections/trophy/",
-        bg: unrealIcon,
+        title: "Learn Unreal Engine 5 Create RPG Mobile Game For Play Store",
+        href: "https://www.udemy.com/course/unreal-engine-5-create-rpg-mobile-game-for-play-store/?couponCode=KEEPLEARNING",
+        bg: RPGMobileGameIcon,
       },
+
       {
-        title: "Travel the world!",
-        href: "https://www.lonelyplanet.com/",
-        bg: unrealIcon,
+        title: "Learn Unreal Engine 5 creating an ARPG Game from Scratch",
+        href: "https://www.udemy.com/course/unreal-engine-5-creating-an-arpg-game-from-scratch/?couponCode=KEEPLEARNING",
+        bg: ARPGIcon,
       },
+
+      {
+        title: "Learn Engine 5 - Gameplay Ability System - Top Down RPG",
+        href: "https://www.udemy.com/course/unreal-engine-5-gas-top-down-rpg/?couponCode=KEEPLEARNING",
+        bg: topwownRPGIcon,
+      },
+
+      {
+        title: "Learn Unreal Engine 5 C++ Multiplayer Shooter",
+        href: "https://www.udemy.com/course/unreal-engine-5-cpp-multiplayer-shooter/",
+        bg: shooterIcon,
+      },
+
+            {
+        title: "Learn Unreal Engine 5 C++ The Ultimate Game Developer Course",
+        href: "https://www.udemy.com/course/unreal-engine-5-the-ultimate-game-developer-course/?couponCode=KEEPLEARNING",
+        bg: UE5CIcon,
+      },
+     
     ].map((card, i) => (
       <a
         key={i}
