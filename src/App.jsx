@@ -556,7 +556,7 @@ export default function App() {
         bg: BlenderIcon,
       },
             {
-        title: "Learn UUnreal Engine 5 Mobile Game Development For Beginners",
+        title: "Learn Unreal Engine 5 Mobile Game Development For Beginners",
         href: "https://www.udemy.com/course/creating-android-games-in-unreal-engine-5-using-blueprint/?couponCode=KEEPLEARNING",
         bg: MobileGameIcon,
       },
