@@ -521,12 +521,12 @@ export default function App() {
       { src: nodejsIcon,      alt: "Nodejs" },
       { src: reactjsIcon,      alt: "Reactjs" },
       { src: viteIcon,      alt: "Vite" },
-      { src: jiraIcon,      alt: "Jira" },
       { src: githubIcon,   alt: "Github" },
       { src: gitlabIcon,  alt: "Gitlab" },
       { src: postmanIcon,      alt: "Postman" },
       { src: jenkinsIcon,      alt: "Jenkins" },
       { src: dockerIcon, alt: "Docker" },
+      { src: jiraIcon,      alt: "Jira" },
       { src: unrealIcon, alt: "Unreal Engine" },
       { src: photopeaIcon, alt: "Photopea" },
       
