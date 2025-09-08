@@ -518,17 +518,17 @@ export default function App() {
       { src: dbdiagramIcon, alt: "Dbdiagram" },
       { src: mysqlIcon,      alt: "Mysql" },
       { src: tableplusIcon,      alt: "Tableplus" },
-      { src: photopeaIcon, alt: "Photopea" },
       { src: nodejsIcon,      alt: "Nodejs" },
       { src: reactjsIcon,      alt: "Reactjs" },
       { src: viteIcon,      alt: "Vite" },
       { src: jiraIcon,      alt: "Jira" },
-      { src: unrealIcon, alt: "Unreal Engine" },
       { src: githubIcon,   alt: "Github" },
       { src: gitlabIcon,  alt: "Gitlab" },
       { src: postmanIcon,      alt: "Postman" },
       { src: jenkinsIcon,      alt: "Jenkins" },
       { src: dockerIcon, alt: "Docker" },
+      { src: unrealIcon, alt: "Unreal Engine" },
+      { src: photopeaIcon, alt: "Photopea" },
       
     ].map((it, i) => (
       <div className="software-item reveal-on-scroll" key={i}>
