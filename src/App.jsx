@@ -483,8 +483,8 @@ export default function App() {
           <p className="about-quote reveal-on-scroll">"Crafting memorable experiences"</p>
 
           <div className="about-socials reveal-on-scroll">
-            <a href="https://youtube.com" target="_blank" rel="noreferrer">📺</a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">💼</a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer">📧</a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">📞</a>
             <a href="https://twitter.com" target="_blank" rel="noreferrer">🐦</a>
             <a href="https://yourportfolio.com" target="_blank" rel="noreferrer">🌐</a>
           </div>
@@ -619,8 +619,8 @@ export default function App() {
   </div>
 
   <div className="footer-center">
-    <a href="https://youtube.com" target="_blank" rel="noreferrer">📺</a>
-    <a href="https://linkedin.com" target="_blank" rel="noreferrer">💼</a>
+    <a href="https://youtube.com" target="_blank" rel="noreferrer">📧</a>
+    <a href="https://linkedin.com" target="_blank" rel="noreferrer">📞</a>
     <a href="https://twitter.com" target="_blank" rel="noreferrer">🐦</a>
     <a href="https://artstation.com" target="_blank" rel="noreferrer">🎨</a>
     <a href="https://patreon.com" target="_blank" rel="noreferrer">🧡</a>
