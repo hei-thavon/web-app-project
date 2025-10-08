@@ -186,13 +186,13 @@ export default function App() {
   </div>
 )}
 
-
       {activePage === "SoloProject" && (
         <div className="container4 page-switch">
           <h2 className="reveal-on-scroll">This is TEST1 Page</h2>
-          <p className="reveal-on-scroll">Unreal Engine 5 Mobile Game Development introduction to the world of mobile game development using the powerful Unreal Engine 5. 
-            This project is designed for my aspiring game developers who passionate about creating mobile games, regardless of prior experience. 
-            I am eager to bring my game ideas to life and dive into the mobile gaming industry.</p>
+          <p className="reveal-on-scroll">PC game development: introduction to multiplayer shooter in the powerful Unreal Engine 5 using C++. 
+            This project is designed for my aspiring game developers who are passionate about creating and joining game sessions using C++ programming and connecting many players across the internet, 
+            regardless of prior experience in playing shooting games. 
+            I am eager to bring my game ideas to life and dive into the gaming studio.</p>
           <div className="video-demo reveal-on-scroll">
             <iframe
               src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1&playsinline=1"
@@ -251,18 +251,18 @@ export default function App() {
     <div className="summary-col">
     <h4 className="summary-title">Goal:</h4>
     <ul className="summary-list">
-      <li>Build an RPG game with optimization for mobile platforms. 
-        Creating and managing blueprints for game logic, 
-        Designing animated characters and environments for mobile games, 
-        and Prepare your game for publication on app stores.</li>
+      <li>Build an FPS game with optimized multipliers for PC platforms. 
+      Creating and managing blueprints for game logic, programming C++ for core mechanics, 
+      designing animated characters and environments, 
+      and prepare game publication on Steam.</li>
     </ul>
     </div>
     <div className="summary-col">
     <h4 className="summary-title">Project Details</h4>
     <ul className="summary-list">
-      <li><span className="summary-label">Engine:</span> ENGINE: Unreal Engine 5 </li>
-      <li><span className="summary-label">Language:</span> Blueprints </li>
-      <li><span className="summary-label">Duration:</span> 16.5 hours to learn, ~3 months to build</li>
+      <li><span className="summary-label">Engine:</span> Unreal Engine 5 </li>
+      <li><span className="summary-label">Language:</span> C++ and Blueprints </li>
+      <li><span className="summary-label">Duration:</span> 65 hours of learning, build in 3 months</li>
       <li><span className="summary-label">Team Size:</span> Solo project</li>
      </ul>
      </div>
@@ -273,11 +273,21 @@ export default function App() {
   <div className="la-col">
     <h4 className="la-title">Learning:</h4>
     <ol className="la-list numbered">
-      <li>Understanding the basics of Unreal Engine 5.</li>
-      <li>Mobile Game Development Fundamentals.</li>
-      <li>Implementing gameplay mechanics with Blueprints Visual Scripting.</li>
-      <li>Character and Environment Design.</li>
-      <li>UI/UX Design for Mobile Games.</li>
+      <li>Creating a plugin to convert any Unreal Engine project to multiplayer</li>
+      <li>Program multiplayer matchmaking in Unreal Engine</li>
+      <li>Connecying players across the internet with matchmaking sessions</li>
+      <li>Learn replication techniques for fast-paced, competitive shooter games</li>
+      <li>Optimize network code by minimizing bandwidth and maximizing performance</li>
+      <li>Lag compensation techniques for multiplayer including client-side prediction and server-side rewind</li>
+      <li>Multiple weapons including pistols, SMGs, assault rifles, shortguns, sniper rifles, rocket launcher, grenade launchers, and throwing grenades</li>
+      <li>Pickups including shields, health, speed buffs, jump buffs, and ammo pickups</li>
+      <li>Crouching, aiming, jumping, strafing, reloading, and throwing, all in multiplayer</li>
+      <li>Working HUD with health and shield bars, ammo count, score and defeats, and game timers</li>
+      <li>Custom game modes, custom match states, and use of the core classes used in multiplayer</li>
+      <li>Learn how the Game Mode, Game State, Player State, Player Controller, Pawn, Character, and Actor classes work in multiplayer</li>
+      <li>Learn about the Unreal Engine Online Subsystem and use it to program multiplayer games using any online service such as Steam</li>
+      <li>Display announcements including: Who eliminated who, who won the game, winning teams, countdown timers</li>
+      <li>Custom Match States: Fly around in the warmup stage, display winners in the cooldown stage</li>
     </ol>
   </div>
 
@@ -467,6 +477,7 @@ export default function App() {
       gained to future projects and opportunities in game development.
     </p>
   </div>
+  
 </section>
         </div>
       )}

@@ -402,7 +402,7 @@ figure{ margin:0; }
 
 .summary-list {
   margin: 0;
-  padding-left: 1.2rem;     /* bullets */
+  padding-left: 1.5rem;     /* bullets */
   line-height: 1.7;
   list-style: disc;
   opacity: 0.95;
@@ -424,8 +424,8 @@ figure{ margin:0; }
   border: 1px solid rgba(255,255,255,.08);
   box-shadow: 0 18px 40px rgba(0,0,0,.35);
   display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(1, minmax(200px, 1fr));
+  gap: 50px;
 }
 
 .la-title {
@@ -437,7 +437,7 @@ figure{ margin:0; }
 }
 
 .la-list { margin: 0; line-height: 1.8; }
-.la-list.numbered { padding-left: 1.4rem; list-style: decimal; }
+.la-list.numbered { padding-left: 1.2rem; list-style: disc; }
 .la-list.bulleted { padding-left: 1.2rem; list-style: disc; }
 
 .la-divider {
@@ -475,10 +475,14 @@ figure{ margin:0; }
 .conclusion-body {
   max-width: 900px;        /* readable line length */
   margin: 0 auto;          /* center the text block */
-  text-align: center;      /* center lines (not justify) */
-  line-height: 1.85;
+  text-align:justify;      /* center lines (not justify) */
+  line-height: 1.9;
 }
 
+/* add this */
+.conclusion-body p {
+  margin-bottom: 1.3em;   /* space between paragraphs */
+}
 
 
 .about-me {
